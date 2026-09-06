@@ -12,19 +12,21 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Setup Node.js (强制 22 版本)
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22.12.0' # 严格匹配 Astro 要求 >=22.12.0
 
       - name: Install pnpm
         run: npm install -g pnpm
 
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --no-frozen-lockfile # 防锁文件报错
 
       - name: Build project
         run: pnpm build
+        env:
+          NODE_OPTIONS: --max-old-space-size=4096 # 防内存溢出
 
       - name: Upload dist artifact
         uses: actions/upload-artifact@v4
