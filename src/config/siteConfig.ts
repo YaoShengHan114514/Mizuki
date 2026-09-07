@@ -7,7 +7,7 @@ export const siteConfig: SiteConfig = {
 	title: "Mizuki",
 	subtitle: "One demo website",
 	siteURL: "https://mizuki.mysqil.com/", // 请替换为你的站点URL，以斜杠结尾
-	siteStartDate: "2025-01-01", // 站点开始运行日期，用于站点统计组件计算运行天数
+	siteStartDate: "2026-09-08", // 站点开始运行日期，用于站点统计组件计算运行天数
 	timeZone: "Asia/Shanghai", // 文章日期使用的 IANA 时区，可改为 Asia/Tokyo、Europe/Berlin 等
 
 	lang: SITE_LANG,
@@ -162,15 +162,15 @@ export const siteConfig: SiteConfig = {
 
 		homeText: {
 			enable: true,
-			title: "わたしの部屋",
+			title: "我很莜陌の个人主页",
 			switchable: true,
 
 			subtitle: [
-				"特別なことはないけど、君がいると十分です",
-				"今でもあなたは私の光",
-				"君ってさ、知らないうちに私の毎日になってたよ",
-				"君と話すと、なんか毎日がちょっと楽しくなるんだ",
-				"今日はなんでもない日。でも、ちょっとだけいい日",
+				"My babe,I'll love you forever!",
+				"The worst part about having a crush is that no one knows. Not even you.",
+				"Loving you in secret is the longest conversation I've never had.",
+				"I look at you like you're the whole sky, and I'm just someone on the ground.",
+				"I'm not looking for a situationship. I'm looking for someone to build a whole world with.",
 			],
 			typewriter: {
 				enable: true, // 启用副标题打字机效果
