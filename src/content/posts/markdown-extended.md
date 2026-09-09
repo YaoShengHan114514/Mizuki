@@ -1,50 +1,77 @@
 ---
-title: Markdown Extended Features
+title: Markdown 扩展功能
 published: 2024-05-01
-updated: 2026-07-30
-description: 'GitHub cards, callouts, code groups, Wiki Links, image grids, PlantUML, and other enhanced Markdown features in Mizuki.'
+updated: 2026-09-08
+description: 'Mizuki 中的 GitHub 卡片、提示框、代码组、Wiki 链接、图片网格、PlantUML 等增强 Markdown 功能。'
 image: ''
-tags: [Demo, Example, Markdown, Mizuki]
-category: 'Examples'
+tags: [演示, 示例, Markdown, Mizuki]
+category: '示例'
 draft: false 
 ---
 
-## GitHub Repository Cards
-You can add dynamic cards that link to GitHub repositories, on page load, the repository information is pulled from the GitHub API. 
+## 目录
+
+- [GitHub 仓库卡片](#github-repository-cards)
+- [提示框（Admonitions）](#admonitions)
+  - [基础语法](#admonitions-basic)
+  - [自定义标题](#admonitions-custom)
+  - [GitHub 语法](#admonitions-github)
+  - [剧透](#admonitions-spoiler)
+- [代码组](#code-groups)
+  - [长代码自动折叠](#code-groups-collapse)
+- [扩展提示框](#extended-callouts)
+- [Wiki 链接](#wiki-links)
+- [Markdown 图片](#markdown-images)
+- [自动图片网格](#automatic-image-grids)
+- [PlantUML](#plantuml)
+- [化学式](#chemistry)
+
+
+## GitHub 仓库卡片
+
+<a id="github-repository-cards"></a>
+
+你可以添加指向 GitHub 仓库的动态卡片，页面加载时会通过 GitHub API 拉取仓库信息。
 
 ::github{repo="LyraVoid/Mizuki"}
 
-Create a GitHub repository card with the code `::github{repo="LyraVoid/Mizuki"}`.
+使用代码 `::github{repo="LyraVoid/Mizuki"}` 创建一个 GitHub 仓库卡片。
 
 ```markdown
 ::github{repo="LyraVoid/Mizuki"}
 ```
 
-## Admonitions
+## 提示框（Admonitions）
 
-Following types of admonitions are supported: `note` `tip` `important` `warning` `caution`
+<a id="admonitions"></a>
+
+
+支持以下类型的提示框：
 
 :::note
-Highlights information that users should take into account, even when skimming.
+即使用户只是快速浏览，也应留意的重要信息。
 :::
 
 :::tip
-Optional information to help a user be more successful.
+帮助用户更顺利完成的补充信息。
 :::
 
 :::important
-Crucial information necessary for users to succeed.
+用户顺利完成所必须的关键信息。
 :::
 
 :::warning
-Critical content demanding immediate user attention due to potential risks.
+因潜在风险而需要用户立即关注的关键内容。
 :::
 
 :::caution
-Negative potential consequences of an action.
+某项操作可能带来的负面后果。
 :::
 
-### Basic Syntax
+### 基础语法
+
+<a id="admonitions-basic"></a>
+
 
 ```markdown
 :::note
@@ -56,12 +83,15 @@ Optional information to help a user be more successful.
 :::
 ```
 
-### Custom Titles
+### 自定义标题
 
-The title of the admonition can be customized.
+<a id="admonitions-custom"></a>
+
+
+提示框的标题可以自定义。
 
 :::note[MY CUSTOM TITLE]
-This is a note with a custom title.
+这是一张带自定义标题的提示框。
 :::
 
 ```markdown
@@ -70,10 +100,13 @@ This is a note with a custom title.
 :::
 ```
 
-### GitHub Syntax
+### GitHub 语法
+
+<a id="admonitions-github"></a>
+
 
 > [!TIP]
-> [The GitHub syntax](https://github.com/orgs/community/discussions/16925) is also supported.
+> [GitHub 语法](https://github.com/orgs/community/discussions/16925) 同样受支持。
 
 ```
 > [!NOTE]
@@ -83,21 +116,27 @@ This is a note with a custom title.
 > The GitHub syntax is also supported.
 ```
 
-### Spoiler
+### 剧透
 
-You can add spoilers to your text. The text also supports **Markdown** syntax.
+<a id="admonitions-spoiler"></a>
 
-The content :spoiler[is hidden **ayyy**]!
+
+你可以为文本添加剧透。文本同样支持 **Markdown** 语法。
+
+这段内容 :spoiler[隐藏了 **ayyy**]！
 
 ```markdown
 The content :spoiler[is hidden **ayyy**]!
 ```
 
-## Code Groups
+## 代码组
 
-Use VitePress-style `::: code-group labels=[...]` syntax to present related
-examples as accessible tabs. Tabs support mouse input and the
-<kbd>Left</kbd>, <kbd>Right</kbd>, <kbd>Home</kbd>, and <kbd>End</kbd> keys.
+<a id="code-groups"></a>
+
+
+使用 VitePress 风格的 `::: code-group labels=[...]` 语法，把相关的示例以可访问的选项卡形式呈现。
+选项卡支持鼠标操作以及
+<kbd>Left</kbd>、<kbd>Right</kbd>、<kbd>Home</kbd> 和 <kbd>End</kbd> 按键。
 
 ::: code-group labels=[TypeScript, Shell, Collapsed]
 
@@ -135,10 +174,13 @@ pnpm build
 :::
 ````
 
-### Automatic Long-Code Collapse
+### 长代码自动折叠
 
-Code blocks longer than the configured threshold are collapsed automatically.
-Authors can continue using `collapse={...}` to fold selected line ranges.
+<a id="code-groups-collapse"></a>
+
+
+超过配置阈值的代码块会自动折叠。
+作者仍可继续使用 `collapse={...}` 来折叠指定的行范围。
 
 ```text
 01
@@ -165,19 +207,22 @@ Authors can continue using `collapse={...}` to fold selected line ranges.
 22
 ```
 
-## Extended Callouts
+## 扩展提示框
 
-In addition to GitHub's five alert types, Mizuki accepts common Obsidian
-aliases such as `INFO`, `TODO`, `SUCCESS`, `QUESTION`, `DANGER`, `BUG`,
-`EXAMPLE`, and `QUOTE`.
+<a id="extended-callouts"></a>
+
+
+除 GitHub 的五种提醒类型外，Mizuki 还接受 Obsidian 的常见别名，例如
+`INFO`、`TODO`、`SUCCESS`、`QUESTION`、`DANGER`、`BUG`、
+`EXAMPLE` 和 `QUOTE`。
 
 > [!BUG] Known limitation
-> Extended aliases are mapped to Mizuki's semantic callout styles.
+> 扩展别名会被映射到 Mizuki 的语义化提示框样式。
 
-Python Markdown and Docusaurus-style directives are supported as well:
+同时也支持 Python Markdown 与 Docusaurus 风格的指令：
 
 :::danger[Danger directive]
-This directive uses a custom title.
+这条指令使用了自定义标题。
 :::
 
 ```markdown
@@ -189,20 +234,23 @@ This directive uses a custom title.
 :::
 ```
 
-## Wiki Links
+## Wiki 链接
 
-Obsidian-style Wiki Links resolve article paths, aliases, and heading anchors.
-A standalone link becomes an article card:
+<a id="wiki-links"></a>
+
+
+Obsidian 风格的 Wiki 链接可解析文章路径、别名与标题锚点。
+单独的链接会成为一个文章卡片：
 
 [[guide]]
 
-Cards reuse the target post cover. Relative covers are resolved from the target
-post, while public, remote, and configured `image: api` covers are also
-supported. Encrypted posts never expose their cover in previews.
+卡片会复用目标文章的封面。相对封面从目标文章解析，
+同时也支持公共、远程以及配置了 `image: api` 的封面。
+加密文章在预览中绝不会暴露其封面。
 
-Inline links stay inline. See
-[[markdown-mermaid|the Mermaid examples]], or link directly to
-[[markdown-mermaid#Flowchart Example|a section]].
+行内链接保持行内。例如
+[[markdown-mermaid|Mermaid 示例]]，或直接链接到
+[[markdown-mermaid#Flowchart Example|某个章节]]。
 
 ```markdown
 [[markdown-mermaid]]
@@ -210,11 +258,13 @@ Inline links stay inline. See
 See [[markdown-mermaid|the Mermaid examples]].
 ```
 
-## Markdown Images
+## Markdown 图片
 
-Image alt text remains available to assistive technology. A Markdown title is
-shown as the visible caption, and an optional validated `w-N%` token controls
-the display width:
+<a id="markdown-images"></a>
+
+
+图片的替代文本对辅助技术仍然可用。Markdown 标题会作为可见的图注显示，
+可选的合法 `w-N%` 标记用于控制显示宽度：
 
 ![Caption example w-60%](/images/demos/image-grid-demo/square-3.webp "A visible image caption")
 
@@ -222,10 +272,10 @@ the display width:
 ![Descriptive alt w-60%](./image.webp "A visible image caption")
 ```
 
-Only widths from `w-1%` through `w-100%` are accepted. Remote image hosts in
-`imageOptimization.noReferrerDomains` receive `referrerpolicy="no-referrer"`
-in the initial HTML. Add `data-no-enhance` to a raw HTML image or ancestor when
-custom markup should be left alone.
+仅接受 `w-1%` 到 `w-100%` 之间的宽度。`imageOptimization.noReferrerDomains` 中的
+远程图片主机，会在初始 HTML 中收到 `referrerpolicy="no-referrer"`。
+若希望保留自定义标记，可为原生 HTML 图片或其祖先元素添加 `data-no-enhance`；
+这样自定义标记就不会被额外处理。
 
 ```html
 <div data-no-enhance>
@@ -233,11 +283,14 @@ custom markup should be left alone.
 </div>
 ```
 
-## Automatic Image Grids
+## 自动图片网格
 
-Two or more adjacent standalone images are grouped into a responsive gallery.
-Explicit `:::grid` directives remain available when custom columns, aspect
-ratio, or object fitting are required.
+<a id="automatic-image-grids"></a>
+
+
+两张或以上相邻的独立图片会被组合成一个响应式画廊。
+当需要自定义列数、宽高比或
+对象填充方式时，仍可使用显式的 `:::grid` 指令。
 
 ![Square demo 1](/images/demos/image-grid-demo/square-1.webp)
 ![Square demo 2](/images/demos/image-grid-demo/square-2.webp)
@@ -249,9 +302,12 @@ ratio, or object fitting are required.
 
 ## PlantUML
 
-PlantUML fences generate SVG diagrams through the configured server. Diagrams
-support light and dark sources, zooming, dragging, resetting, and fullscreen
-viewing.
+<a id="plantuml"></a>
+
+
+PlantUML 代码块会通过配置的服务器生成 SVG 图表。图表支持
+明/暗两种来源，以及缩放、拖动、重置和
+全屏查看。
 
 ```plantuml
 @startuml
@@ -269,9 +325,12 @@ Alice -> Bob: Hello
 ```
 ````
 
-## Chemistry
+## 化学式
 
-The KaTeX `mhchem` extension renders chemical equations:
+<a id="chemistry"></a>
+
+
+KaTeX 的 `mhchem` 扩展可渲染化学方程式：
 
 $$
 \ce{H2O + CO2 -> H2CO3}
