@@ -1,0 +1,28 @@
+backend:
+  name: github
+  repo: YaoShengHan114514/Mizuki
+  branch: master
+  auth_methods: [oauth]
+  base_url: https://你的worker.workers.dev
+
+media_folder: src/assets/uploads
+public_folder: /assets/uploads
+
+collections:
+  - name: posts
+    label: 文章
+    folder: src/content/posts
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    format: yaml-frontmatter
+    fields:
+      - { label: 标题, name: title, widget: string, required: true }
+      - { label: 发布日期, name: published, widget: datetime, required: true }
+      - { label: 描述, name: description, widget: text }
+      - { label: 封面图, name: image, widget: image, required: false }
+      - { label: 标签, name: tags, widget: list }
+      - { label: 分类, name: category, widget: string }
+      - { label: 草稿, name: draft, widget: boolean, required: false, default: false }
+      - { label: 置顶, name: pinned, widget: boolean, required: false, default: false }
+      - { label: 正文, name: body, widget: markdown }
